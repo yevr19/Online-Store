@@ -23,7 +23,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Start the Docker services
         run: docker-compose -f docker-compose.yml -f docker-compose.services.yml up -d
