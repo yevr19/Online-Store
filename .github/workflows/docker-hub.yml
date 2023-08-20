@@ -26,11 +26,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Start the Docker services
-        run: docker-compose -f docker-compose.yml -f docker-compose-services.yml up -d
+        run: docker-compose -f docker-compose.yml -f docker-compose.services.yml up -d
 
       - name: Get container ID for online-store-app
         run: |
-          container_id=$(docker-compose -f docker-compose.yml -f docker-compose-services.yml ps -q online-store-app)
+          container_id=$(docker-compose -f docker-compose.yml -f docker-compose.services.yml ps -q online-store-app)
           echo "CONTAINER_ID=$container_id" >> $GITHUB_ENV
 
       - name: Wait for online-store-app to be healthy
